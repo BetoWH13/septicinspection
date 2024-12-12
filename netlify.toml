@@ -42,14 +42,3 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
-
-# Brotli compression for supported browsers
-[[headers]]
-  for = "/*.js"
-  [headers.values]
-    Content-Encoding = "br"
-
-[[headers]]
-  for = "/*.css"
-  [headers.values]
-    Content-Encoding = "br"
