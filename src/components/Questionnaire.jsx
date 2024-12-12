@@ -25,6 +25,15 @@ const Questionnaire = () => {
   const calculateInspectionStatus = () => {
     const { propertyType, lastInspection } = formData;
     
+    // If last inspection is unknown, return urgent status immediately
+    if (lastInspection === 'unknown') {
+      return {
+        level: 'urgent',
+        message: 'Urgent: Schedule an inspection immediately. Unknown inspection history indicates potential risks to your septic system.',
+        color: 'bg-red-50 text-red-700'
+      };
+    }
+    
     // Convert last inspection to a numerical score
     let score = 0;
     
