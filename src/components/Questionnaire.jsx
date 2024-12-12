@@ -11,6 +11,8 @@ const Questionnaire = () => {
     phone: '',
     address: ''
   });
+  const [status, setStatus] = useState('');
+  const [inspectionStatus, setInspectionStatus] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -20,7 +22,62 @@ const Questionnaire = () => {
     }));
   };
 
+  const calculateInspectionStatus = () => {
+    const { propertyType, lastInspection } = formData;
+    
+    // Convert last inspection to a numerical score
+    let score = 0;
+    
+    // Property type scoring
+    if (propertyType === 'commercial' || propertyType === 'industrial') {
+      score += 2; // Commercial/Industrial properties have higher risk
+    } else {
+      score += 1;
+    }
+    
+    // Last inspection scoring
+    switch (lastInspection) {
+      case 'never':
+        score += 3;
+        break;
+      case '5+':
+        score += 2;
+        break;
+      case '3-5':
+        score += 1;
+        break;
+      case '1-3':
+        score += 0;
+        break;
+      default:
+        score += 1;
+    }
+    
+    // Determine status based on total score
+    if (score >= 4) {
+      return {
+        level: 'urgent',
+        message: 'Urgent: Immediate inspection recommended. Your septic system shows high-risk factors.',
+        color: 'bg-red-50 text-red-700'
+      };
+    } else if (score >= 3) {
+      return {
+        level: 'medium',
+        message: 'Medium Priority: Inspection recommended soon. Some risk factors identified.',
+        color: 'bg-yellow-50 text-yellow-700'
+      };
+    } else {
+      return {
+        level: 'ok',
+        message: 'Low Priority: Regular inspection advised. Your system appears to be well-maintained.',
+        color: 'bg-green-50 text-green-700'
+      };
+    }
+  };
+
   const handleNext = () => {
+    const status = calculateInspectionStatus();
+    setInspectionStatus(status);
     setStep(prev => prev + 1);
   };
 
@@ -30,21 +87,18 @@ const Questionnaire = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
+    setStatus('Processing your request...');
+    
+    // Log form data
     console.log('Form submitted:', formData);
-    // For now, just show a success message
-    alert('Thank you! We will contact you shortly.');
-    // Reset form
-    setFormData({
-      propertyType: '',
-      lastInspection: '',
-      issues: '',
-      name: '',
-      email: '',
-      phone: '',
-      address: ''
-    });
-    setStep(1);
+    
+    // Show success message
+    setStatus('Thank you! Redirecting you to our partner site...');
+    
+    // Redirect after a short delay to show the message
+    setTimeout(() => {
+      window.location.href = 'https://leads.leadsmartinc.com/?api_key=eccf565586cda416df8b89f66df641fee9a1bcb8&affiliate_source=albertowaizel1&category=&funnel=3&buttons=btn-success&step=1';
+    }, 2000);
   };
 
   return (
@@ -52,6 +106,18 @@ const Questionnaire = () => {
       <h2 className="text-2xl font-semibold text-gray-800 mb-4">
         Get Your Free Septic Inspection Quote
       </h2>
+      
+      {status && (
+        <div className="mb-4 p-4 bg-blue-50 text-blue-700 rounded-md">
+          {status}
+        </div>
+      )}
+
+      {inspectionStatus && (
+        <div className={`mb-4 p-4 rounded-md ${inspectionStatus.color}`}>
+          {inspectionStatus.message}
+        </div>
+      )}
       
       <form onSubmit={handleSubmit} className="space-y-4">
         {step === 1 && (
