@@ -5,13 +5,13 @@ export default defineConfig({
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
+      input: {
+        main: 'index.html'
+      },
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-        },
-        chunkFileNames: 'assets/[name]-[hash].js',
-        entryFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]'
+        entryFileNames: '[name].js',
+        chunkFileNames: '[name]-[hash].js',
+        assetFileNames: '[name][extname]'
       }
     },
     // Enable minification
