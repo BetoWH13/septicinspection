@@ -1,41 +1,18 @@
 import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
+// https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react()],
   build: {
     outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
-      input: {
-        main: 'index.html'
-      },
-      output: {
-        entryFileNames: '[name].js',
-        chunkFileNames: '[name]-[hash].js',
-        assetFileNames: '[name][extname]'
-      }
-    },
-    // Enable minification
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    },
-    // Enable source maps for production
-    sourcemap: true,
-    // Enable asset optimization
-    assetsInlineLimit: 4096,
-    // Enable CSS code splitting
-    cssCodeSplit: true,
-    // Enable build cache
-    cache: true
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom']
+      input: 'index.html'
+    }
   },
   server: {
-    // Enable compression
-    compress: true
+    port: 3000,
+    open: true
   }
 })
