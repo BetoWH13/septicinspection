@@ -1,4 +1,5 @@
 import React from 'react'
+import Questionnaire from './components/Questionnaire'
 
 function App() {
   return (
@@ -36,29 +37,7 @@ function App() {
             </ul>
           </section>
 
-          <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-              Septic Tank Inspection Cost Guide
-            </h2>
-            <ul className="space-y-3 text-gray-600">
-              <li className="flex items-start gap-2">
-                <span className="text-blue-600">✓</span>
-                Transparent pricing information
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-600">✓</span>
-                Cost estimates for your area
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-600">✓</span>
-                Detailed service breakdowns
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-blue-600">✓</span>
-                Competitive local rates
-              </li>
-            </ul>
-          </section>
+          <Questionnaire />
         </div>
 
         <section className="bg-blue-50 p-6 rounded-lg mb-12">
@@ -79,6 +58,30 @@ function App() {
               <li>• Pipe condition assessment</li>
             </ul>
           </div>
+        </section>
+
+        <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+            Septic Tank Inspection Cost Guide
+          </h2>
+          <ul className="space-y-3 text-gray-600">
+            <li className="flex items-start gap-2">
+              <span className="text-blue-600">✓</span>
+              Transparent pricing information
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-600">✓</span>
+              Cost estimates for your area
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-600">✓</span>
+              Detailed service breakdowns
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-blue-600">✓</span>
+              Competitive local rates
+            </li>
+          </ul>
         </section>
 
         <section className="text-center">
