@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Questionnaire = () => {
   const [step, setStep] = useState(1);
@@ -125,168 +126,179 @@ const Questionnaire = () => {
   }
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-        Get Your Free Septic Inspection Quote
-      </h2>
-      
-      {errorMessage && (
-        <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded">
-          {errorMessage}
-        </div>
-      )}
-
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {step === 1 && (
-          <div className="space-y-4">
-            <div>
-              <label className="block text-gray-700 mb-2">Property Type</label>
-              <select
-                name="propertyType"
-                value={formData.propertyType}
-                onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                required
-              >
-                <option value="">Select Property Type</option>
-                <option value="residential">Residential</option>
-                <option value="commercial">Commercial</option>
-                <option value="industrial">Industrial</option>
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-gray-700 mb-2">Last Inspection</label>
-              <select
-                name="lastInspection"
-                value={formData.lastInspection}
-                onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                required
-              >
-                <option value="">When was the last inspection?</option>
-                <option value="never">Never</option>
-                <option value="1-3">1-3 years ago</option>
-                <option value="3-5">3-5 years ago</option>
-                <option value="5+">5+ years ago</option>
-                <option value="unknown">Unknown</option>
-              </select>
-            </div>
-            
-            <div>
-              <label className="block text-gray-700 mb-2">Current Issues</label>
-              <textarea
-                name="issues"
-                value={formData.issues}
-                onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                placeholder="Any current issues or concerns?"
-                rows="3"
-              />
-            </div>
-            
-            <button
-              type="button"
-              onClick={handleNext}
-              className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
-            >
-              Next
-            </button>
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <Link
+        to="/"
+        className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+        </svg>
+        Back to Home
+      </Link>
+      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          Get Your Free Septic Inspection Quote
+        </h2>
+        
+        {errorMessage && (
+          <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded">
+            {errorMessage}
           </div>
         )}
 
-        {step === 2 && (
-          <div className="space-y-4">
-            <div>
-              <label className="block text-gray-700 mb-2">Full Name</label>
-              <input
-                type="text"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                required
-              />
-            </div>
-            
-            <div>
-              <label className="block text-gray-700 mb-2">Email</label>
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                required
-              />
-            </div>
-            
-            <div>
-              <label className="block text-gray-700 mb-2">Phone</label>
-              <input
-                type="tel"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                required
-              />
-            </div>
-            
-            <div>
-              <label className="block text-gray-700 mb-2">Property Address</label>
-              <textarea
-                name="address"
-                value={formData.address}
-                onChange={handleInputChange}
-                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
-                rows="2"
-                required
-              />
-            </div>
-            
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={handleBack}
-                className="w-1/2 bg-gray-100 text-gray-700 py-2 rounded-md hover:bg-gray-200 transition-colors"
-              >
-                Back
-              </button>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          {step === 1 && (
+            <div className="space-y-4">
+              <div>
+                <label className="block text-gray-700 mb-2">Property Type</label>
+                <select
+                  name="propertyType"
+                  value={formData.propertyType}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  required
+                >
+                  <option value="">Select Property Type</option>
+                  <option value="residential">Residential</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="industrial">Industrial</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 mb-2">Last Inspection</label>
+                <select
+                  name="lastInspection"
+                  value={formData.lastInspection}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  required
+                >
+                  <option value="">When was the last inspection?</option>
+                  <option value="never">Never</option>
+                  <option value="1-3">1-3 years ago</option>
+                  <option value="3-5">3-5 years ago</option>
+                  <option value="5+">5+ years ago</option>
+                  <option value="unknown">Unknown</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 mb-2">Current Issues</label>
+                <textarea
+                  name="issues"
+                  value={formData.issues}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  placeholder="Any current issues or concerns?"
+                  rows="3"
+                />
+              </div>
+              
               <button
                 type="button"
                 onClick={handleNext}
-                className="w-1/2 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
+                className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
               >
                 Next
               </button>
             </div>
-          </div>
-        )}
+          )}
 
-        {step === 3 && (
-          <div className="flex justify-between pt-4">
-            <button
-              type="button"
-              onClick={handleBack}
-              className="bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200 transition-colors"
-            >
-              Back
-            </button>
-            <button
-              type="submit"
-              disabled={status === 'submitting'}
-              className={`ml-auto px-4 py-2 rounded text-white transition-colors ${
-                status === 'submitting'
-                  ? 'bg-blue-400 cursor-not-allowed'
-                  : 'bg-blue-600 hover:bg-blue-700'
-              }`}
-            >
-              {status === 'submitting' ? 'Submitting...' : 'Submit'}
-            </button>
-          </div>
-        )}
-      </form>
+          {step === 2 && (
+            <div className="space-y-4">
+              <div>
+                <label className="block text-gray-700 mb-2">Full Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 mb-2">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 mb-2">Phone</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label className="block text-gray-700 mb-2">Property Address</label>
+                <textarea
+                  name="address"
+                  value={formData.address}
+                  onChange={handleInputChange}
+                  className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
+                  rows="2"
+                  required
+                />
+              </div>
+              
+              <div className="flex gap-3">
+                <button
+                  type="button"
+                  onClick={handleBack}
+                  className="w-1/2 bg-gray-100 text-gray-700 py-2 rounded-md hover:bg-gray-200 transition-colors"
+                >
+                  Back
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  className="w-1/2 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          )}
+
+          {step === 3 && (
+            <div className="flex justify-between pt-4">
+              <button
+                type="button"
+                onClick={handleBack}
+                className="bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200 transition-colors"
+              >
+                Back
+              </button>
+              <button
+                type="submit"
+                disabled={status === 'submitting'}
+                className={`ml-auto px-4 py-2 rounded text-white transition-colors ${
+                  status === 'submitting'
+                    ? 'bg-blue-400 cursor-not-allowed'
+                    : 'bg-blue-600 hover:bg-blue-700'
+                }`}
+              >
+                {status === 'submitting' ? 'Submitting...' : 'Submit'}
+              </button>
+            </div>
+          )}
+        </form>
+      </div>
     </div>
   );
 };
