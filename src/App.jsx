@@ -2,6 +2,7 @@ import React from 'react'
 import Questionnaire from './components/Questionnaire'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
+import AffiliateDisclosure from './components/AffiliateDisclosure'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/affiliate-disclosure" element={<AffiliateDisclosure />} />
         <Route path="/" element={
           <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col">
             {/* Top Banner */}
@@ -239,12 +241,15 @@ function App() {
                   <div className="mb-4 md:mb-0">
                     <p className="text-gray-600"> 2024 Septic Tank Inspection Services. All rights reserved.</p>
                   </div>
-                  <nav className="flex gap-6">
+                  <nav className="flex flex-wrap gap-6">
                     <Link to="/privacy-policy" className="text-gray-600 hover:text-blue-600 transition-colors">
                       Privacy Policy
                     </Link>
                     <Link to="/terms-of-service" className="text-gray-600 hover:text-blue-600 transition-colors">
                       Terms of Service
+                    </Link>
+                    <Link to="/affiliate-disclosure" className="text-gray-600 hover:text-blue-600 transition-colors">
+                      Affiliate Disclosure
                     </Link>
                     <a href="tel:877-796-6641" className="text-gray-600 hover:text-blue-600 transition-colors">
                       Contact Us
