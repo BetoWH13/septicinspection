@@ -16,23 +16,23 @@ function App() {
         </div>
       </div>
 
-      <main className="max-w-7xl mx-auto px-4 py-8">
+      <main className="max-w-7xl mx-auto px-4 py-8" itemScope itemType="https://schema.org/LocalBusiness">
         <div className="flex justify-center mb-8">
-          <img src="/logo.svg" alt="Septic Tank Inspection Services" className="h-24" />
+          <img src="/logo.svg" alt="Septic Tank Inspection Services" className="h-24" itemProp="image" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-900 mb-4 text-center">
+        <h1 className="text-3xl font-bold text-gray-900 mb-4 text-center" itemProp="name">
           Professional Septic Tank Inspection Services Near Me
         </h1>
-        <p className="text-xl text-gray-600 mb-8 text-center">
+        <p className="text-xl text-gray-600 mb-8 text-center" itemProp="description">
           Expert septic system evaluations, cost estimates, and detailed inspection checklists
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
-            <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+          <section id="services" className="bg-white p-6 rounded-lg shadow-sm border border-gray-100" itemScope itemType="https://schema.org/Service">
+            <h2 className="text-2xl font-semibold text-gray-800 mb-4" itemProp="name">
               Comprehensive Septic Tank Inspection Services
             </h2>
-            <ul className="space-y-3 text-gray-600">
+            <ul className="space-y-3 text-gray-600" itemProp="hasOfferCatalog">
               <li className="flex items-start gap-2">
                 <span className="text-blue-600">✓</span>
                 Complete septic tank inspection checklist
@@ -55,20 +55,23 @@ function App() {
               <a 
                 href="tel:877-796-6641" 
                 className="mt-2 w-full inline-block text-center bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors"
+                itemProp="telephone"
               >
                 Call 877-796-6641
               </a>
             </div>
           </section>
 
-          <Questionnaire />
+          <div id="quote">
+            <Questionnaire />
+          </div>
         </div>
 
-        <section className="bg-blue-50 p-6 rounded-lg mb-12">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        <section className="bg-blue-50 p-6 rounded-lg mb-12" itemScope itemType="https://schema.org/Service">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4" itemProp="name">
             What We Inspect
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6" itemProp="serviceType">
             <ul className="space-y-2 text-gray-600">
               <li>• Septic tank inspection pipe and cap</li>
               <li>• Tank inspection ports</li>
@@ -84,11 +87,11 @@ function App() {
           </div>
         </section>
 
-        <section className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 mb-12">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
+        <section id="cost-guide" className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 mb-12" itemScope itemType="https://schema.org/PriceSpecification">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4" itemProp="name">
             Septic Tank Inspection Cost Guide
           </h2>
-          <ul className="space-y-3 text-gray-600">
+          <ul className="space-y-3 text-gray-600" itemProp="description">
             <li className="flex items-start gap-2">
               <span className="text-blue-600">✓</span>
               Transparent pricing information
@@ -119,6 +122,7 @@ function App() {
             <a 
               href="tel:877-796-6641"
               className="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors inline-flex items-center gap-2"
+              itemProp="telephone"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -126,7 +130,7 @@ function App() {
               Call 877-796-6641
             </a>
             <button 
-              onClick={() => document.querySelector('form').scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.querySelector('#quote').scrollIntoView({ behavior: 'smooth' })}
               className="bg-gray-100 text-gray-700 px-8 py-3 rounded-md font-semibold hover:bg-gray-200 transition-colors"
             >
               Get Online Quote
@@ -139,6 +143,7 @@ function App() {
           <a 
             href="tel:877-796-6641"
             className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2"
+            itemProp="telephone"
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
               <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
@@ -146,6 +151,43 @@ function App() {
             Call Now: 877-796-6641
           </a>
         </div>
+
+        {/* Schema.org Organization Data */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Septic Tank Inspection Services",
+            "image": "https://septicinspection.xyz/logo.svg",
+            "telephone": "877-796-6641",
+            "priceRange": "$$",
+            "address": {
+              "@type": "PostalAddress",
+              "addressCountry": "US"
+            },
+            "description": "Expert septic system evaluations, cost estimates, and detailed inspection checklists",
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Septic Tank Inspection Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Complete Septic Tank Inspection"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Pipe and Port Inspection"
+                  }
+                }
+              ]
+            }
+          })
+        }} />
       </main>
     </div>
   )
