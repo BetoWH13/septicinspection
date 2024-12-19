@@ -64,7 +64,7 @@ function App() {
                     <p className="text-center text-gray-700">Need immediate assistance?</p>
                     <a 
                       href="tel:877-796-6641" 
-                      className="mt-2 w-full inline-block text-center bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 transition-colors"
+                      className="mt-2 w-full inline-block text-center bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors"
                       itemProp="telephone"
                     >
                       Call 877-796-6641
@@ -128,23 +128,25 @@ function App() {
                 <p className="text-gray-600 mb-6">
                   Get professional septic tank inspection cost estimates and schedule your inspection today
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <a 
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                  <a
                     href="tel:877-796-6641"
-                    className="bg-blue-600 text-white px-8 py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors inline-flex items-center gap-2"
-                    itemProp="telephone"
+                    className="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
-                    Call 877-796-6641
+                    Call Now
                   </a>
-                  <button 
-                    onClick={() => document.querySelector('#quote').scrollIntoView({ behavior: 'smooth' })}
-                    className="bg-gray-100 text-gray-700 px-8 py-3 rounded-md font-semibold hover:bg-gray-200 transition-colors"
+                  <a
+                    href="https://leads.leadsmartinc.com/?api_key=eccf565586cda416df8b89f66df641fee9a1bcb8&affiliate_source=albertowaizel1&category=&funnel=3&buttons=btn-success&step=1"
+                    className="w-full sm:w-auto px-8 py-3 bg-green-600 text-white text-lg font-semibold rounded-md hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
                   >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                      <path fillRule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586L7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clipRule="evenodd" />
+                    </svg>
                     Get Online Quote
-                  </button>
+                  </a>
                 </div>
               </section>
 

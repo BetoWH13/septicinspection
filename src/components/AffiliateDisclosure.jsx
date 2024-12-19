@@ -66,17 +66,6 @@ const AffiliateDisclosure = () => {
             We respect your privacy and are committed to transparency. For more information about how we handle your data, please review our Privacy Policy. The affiliate tracking process does not collect any personal information beyond what is necessary for processing commissions.
           </p>
         </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">Questions About This Disclosure</h2>
-          <p className="text-gray-600 mb-4">
-            If you have any questions about our affiliate relationships or this disclosure, please contact us at:
-          </p>
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <p className="text-gray-600">Phone: 877-796-6641</p>
-            <p className="text-gray-600">Email: affiliates@septicinspection.xyz</p>
-          </div>
-        </section>
       </div>
     </div>
   );
