@@ -1,8 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const PrivacyPolicy = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
+      <Link
+        to="/"
+        className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-6"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+        </svg>
+        Back to Home
+      </Link>
       <h1 className="text-3xl font-bold text-gray-900 mb-6">Privacy Policy</h1>
       <div className="prose prose-blue max-w-none">
         <p className="text-gray-600 mb-4">Last updated: December 19, 2024</p>
@@ -73,17 +83,6 @@ const PrivacyPolicy = () => {
             <li>Object to our use of your information</li>
             <li>Withdraw consent for marketing communications</li>
           </ul>
-        </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">7. Contact Us</h2>
-          <p className="text-gray-600 mb-4">
-            If you have any questions about this Privacy Policy, please contact us at:
-          </p>
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <p className="text-gray-600">Phone: 877-796-6641</p>
-            <p className="text-gray-600">Email: privacy@septicinspection.xyz</p>
-          </div>
         </section>
       </div>
     </div>

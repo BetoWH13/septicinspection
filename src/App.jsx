@@ -17,12 +17,12 @@ function App() {
             {/* Top Banner */}
             <div className="bg-blue-600 text-white py-2">
               <div className="max-w-7xl mx-auto px-4 text-center">
-                <a href="tel:877-796-6641" className="inline-flex items-center gap-2 hover:text-blue-100 transition-colors">
+                <span className="inline-flex items-center gap-2">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                   Call Now: <span className="font-semibold">877-796-6641</span>
-                </a>
+                </span>
               </div>
             </div>
 
@@ -62,13 +62,12 @@ function App() {
                   </ul>
                   <div className="mt-6 p-4 bg-blue-50 rounded-md">
                     <p className="text-center text-gray-700">Need immediate assistance?</p>
-                    <a 
-                      href="tel:877-796-6641" 
-                      className="mt-2 w-full inline-block text-center bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors"
+                    <div 
+                      className="mt-2 w-full text-center bg-blue-600 text-white py-3 rounded-md font-semibold"
                       itemProp="telephone"
                     >
-                      Call 877-796-6641
-                    </a>
+                      877-796-6641
+                    </div>
                   </div>
                 </section>
 
@@ -129,15 +128,14 @@ function App() {
                   Get professional septic tank inspection cost estimates and schedule your inspection today
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
-                  <a
-                    href="tel:877-796-6641"
-                    className="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-md hover:bg-blue-700 transition-colors flex items-center justify-center gap-2"
+                  <div
+                    className="w-full sm:w-auto px-8 py-3 bg-blue-600 text-white text-lg font-semibold rounded-md flex items-center justify-center gap-2"
                   >
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
-                    Call Now
-                  </a>
+                    877-796-6641
+                  </div>
                   <a
                     href="https://leads.leadsmartinc.com/?api_key=eccf565586cda416df8b89f66df641fee9a1bcb8&affiliate_source=albertowaizel1&category=&funnel=3&buttons=btn-success&step=1"
                     className="w-full sm:w-auto px-8 py-3 bg-green-600 text-white text-lg font-semibold rounded-md hover:bg-green-700 transition-colors flex items-center justify-center gap-2"
@@ -152,16 +150,15 @@ function App() {
 
               {/* Sticky Call Button for Mobile */}
               <div className="fixed bottom-0 left-0 right-0 md:hidden bg-white border-t border-gray-200 p-4">
-                <a 
-                  href="tel:877-796-6641"
-                  className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2"
+                <div 
+                  className="w-full bg-blue-600 text-white py-3 rounded-md font-semibold inline-flex items-center justify-center gap-2"
                   itemProp="telephone"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
-                  Call Now: 877-796-6641
-                </a>
+                  877-796-6641
+                </div>
               </div>
 
               {/* Schema.org Organization Data */}
@@ -253,9 +250,7 @@ function App() {
                     <Link to="/affiliate-disclosure" className="text-gray-600 hover:text-blue-600 transition-colors">
                       Affiliate Disclosure
                     </Link>
-                    <a href="tel:877-796-6641" className="text-gray-600 hover:text-blue-600 transition-colors">
-                      Contact Us
-                    </a>
+                    <span className="text-gray-600">Contact Us: 877-796-6641</span>
                   </nav>
                 </div>
               </div>

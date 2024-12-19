@@ -101,17 +101,6 @@ const TermsOfService = () => {
             We reserve the right to modify these terms at any time. Changes will be effective immediately upon posting to our website. Your continued use of our services constitutes acceptance of these changes.
           </p>
         </section>
-
-        <section className="mb-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">9. Contact Information</h2>
-          <p className="text-gray-600 mb-4">
-            For questions about these Terms of Service, please contact us at:
-          </p>
-          <div className="bg-gray-50 p-4 rounded-lg">
-            <p className="text-gray-600">Phone: 877-796-6641</p>
-            <p className="text-gray-600">Email: terms@septicinspection.xyz</p>
-          </div>
-        </section>
       </div>
     </div>
   );
