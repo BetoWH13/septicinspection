@@ -37,13 +37,13 @@ const AffiliateDisclosure = () => {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Affiliate Partners</h2>
           <p className="text-gray-600 mb-4">
-            We may partner with various companies and products related to septic systems, including but not limited to:
+            We currently partner with LeadSmart Inc. for processing service requests and referrals. When you submit a service request through our website, you will be redirected to LeadSmart's platform where:
           </p>
           <ul className="list-disc pl-6 mb-4 text-gray-600">
-            <li>Septic system manufacturers</li>
-            <li>Maintenance product companies</li>
-            <li>Tool and equipment suppliers</li>
-            <li>Professional service providers</li>
+            <li>Your request will be processed securely through LeadSmart's system</li>
+            <li>We may receive compensation for qualified service requests</li>
+            <li>Your information will be handled according to LeadSmart's privacy policies</li>
+            <li>The service quality and customer experience remain our top priority</li>
           </ul>
         </section>
 

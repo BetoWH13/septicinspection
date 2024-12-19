@@ -83,6 +83,9 @@ const Questionnaire = () => {
       // For now, we'll simulate an API call
       await new Promise(resolve => setTimeout(resolve, 1000));
       
+      // Redirect to LeadSmart
+      window.location.href = "https://leads.leadsmartinc.com/?api_key=eccf565586cda416df8b89f66df641fee9a1bcb8&affiliate_source=albertowaizel1&category=&funnel=3&buttons=btn-success&step=1";
+      
       setStatus('success');
       // Reset form after successful submission
       setFormData({
