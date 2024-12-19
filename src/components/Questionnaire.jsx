@@ -11,8 +11,8 @@ const Questionnaire = () => {
     phone: '',
     address: ''
   });
-  const [status, setStatus] = useState('');
-  const [inspectionStatus, setInspectionStatus] = useState('');
+  const [status, setStatus] = useState('idle'); // 'idle' | 'submitting' | 'success' | 'error'
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -22,93 +22,104 @@ const Questionnaire = () => {
     }));
   };
 
-  const calculateInspectionStatus = () => {
-    const { propertyType, lastInspection } = formData;
-    
-    // If last inspection is unknown, return urgent status immediately
-    if (lastInspection === 'unknown') {
-      return {
-        level: 'urgent',
-        message: 'Urgent: Schedule an inspection immediately. Unknown inspection history indicates potential risks to your septic system.',
-        color: 'bg-red-50 text-red-700'
-      };
+  const validateForm = () => {
+    const requiredFields = {
+      1: ['propertyType'],
+      2: ['lastInspection'],
+      3: ['issues'],
+      4: ['name', 'email', 'phone']
+    };
+
+    const currentFields = requiredFields[step] || [];
+    const missingFields = currentFields.filter(field => !formData[field]);
+
+    if (missingFields.length > 0) {
+      setErrorMessage(`Please fill in all required fields`);
+      return false;
     }
-    
-    // Convert last inspection to a numerical score
-    let score = 0;
-    
-    // Property type scoring
-    if (propertyType === 'commercial' || propertyType === 'industrial') {
-      score += 2; // Commercial/Industrial properties have higher risk
-    } else {
-      score += 1;
+
+    if (step === 4 && !isValidEmail(formData.email)) {
+      setErrorMessage('Please enter a valid email address');
+      return false;
     }
-    
-    // Last inspection scoring
-    switch (lastInspection) {
-      case 'never':
-        score += 3;
-        break;
-      case '5+':
-        score += 2;
-        break;
-      case '3-5':
-        score += 1;
-        break;
-      case '1-3':
-        score += 0;
-        break;
-      default:
-        score += 1;
+
+    if (step === 4 && !isValidPhone(formData.phone)) {
+      setErrorMessage('Please enter a valid phone number');
+      return false;
     }
-    
-    // Determine status based on total score
-    if (score >= 4) {
-      return {
-        level: 'urgent',
-        message: 'Urgent: Immediate inspection recommended. Your septic system shows high-risk factors.',
-        color: 'bg-red-50 text-red-700'
-      };
-    } else if (score >= 3) {
-      return {
-        level: 'medium',
-        message: 'Medium Priority: Inspection recommended soon. Some risk factors identified.',
-        color: 'bg-yellow-50 text-yellow-700'
-      };
-    } else {
-      return {
-        level: 'ok',
-        message: 'Low Priority: Regular inspection advised. Your system appears to be well-maintained.',
-        color: 'bg-green-50 text-green-700'
-      };
-    }
+
+    setErrorMessage('');
+    return true;
+  };
+
+  const isValidEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const isValidPhone = (phone) => {
+    return /^\+?[\d\s-()]{10,}$/.test(phone);
   };
 
   const handleNext = () => {
-    const status = calculateInspectionStatus();
-    setInspectionStatus(status);
-    setStep(prev => prev + 1);
+    if (validateForm()) {
+      setStep(prev => Math.min(prev + 1, 4));
+    }
   };
 
   const handleBack = () => {
-    setStep(prev => prev - 1);
+    setStep(prev => Math.max(prev - 1, 1));
+    setErrorMessage('');
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus('Processing your request...');
-    
-    // Log form data
-    console.log('Form submitted:', formData);
-    
-    // Show success message
-    setStatus('Thank you! Redirecting you to our partner site...');
-    
-    // Redirect after a short delay to show the message
-    setTimeout(() => {
-      window.location.href = 'https://leads.leadsmartinc.com/?api_key=eccf565586cda416df8b89f66df641fee9a1bcb8&affiliate_source=albertowaizel1&category=&funnel=3&buttons=btn-success&step=1';
-    }, 2000);
+    if (!validateForm()) return;
+
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      // Here you would typically make an API call to your backend
+      // For now, we'll simulate an API call
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      setStatus('success');
+      // Reset form after successful submission
+      setFormData({
+        propertyType: '',
+        lastInspection: '',
+        issues: '',
+        name: '',
+        email: '',
+        phone: '',
+        address: ''
+      });
+      setStep(1);
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Something went wrong. Please try again or call us directly.');
+    }
   };
+
+  if (status === 'success') {
+    return (
+      <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+        <div className="text-center">
+          <svg className="mx-auto h-12 w-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+          </svg>
+          <h3 className="mt-2 text-xl font-semibold text-gray-900">Thank you!</h3>
+          <p className="mt-1 text-gray-600">We've received your information and will contact you shortly.</p>
+          <button
+            onClick={() => setStatus('idle')}
+            className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition-colors"
+          >
+            Submit Another Request
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
@@ -116,18 +127,12 @@ const Questionnaire = () => {
         Get Your Free Septic Inspection Quote
       </h2>
       
-      {status && (
-        <div className="mb-4 p-4 bg-blue-50 text-blue-700 rounded-md">
-          {status}
+      {errorMessage && (
+        <div className="mb-4 p-3 bg-red-50 border border-red-200 text-red-700 rounded">
+          {errorMessage}
         </div>
       )}
 
-      {inspectionStatus && (
-        <div className={`mb-4 p-4 rounded-md ${inspectionStatus.color}`}>
-          {inspectionStatus.message}
-        </div>
-      )}
-      
       <form onSubmit={handleSubmit} className="space-y-4">
         {step === 1 && (
           <div className="space-y-4">
@@ -137,7 +142,7 @@ const Questionnaire = () => {
                 name="propertyType"
                 value={formData.propertyType}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 required
               >
                 <option value="">Select Property Type</option>
@@ -153,7 +158,7 @@ const Questionnaire = () => {
                 name="lastInspection"
                 value={formData.lastInspection}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 required
               >
                 <option value="">When was the last inspection?</option>
@@ -171,7 +176,7 @@ const Questionnaire = () => {
                 name="issues"
                 value={formData.issues}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 placeholder="Any current issues or concerns?"
                 rows="3"
               />
@@ -196,7 +201,7 @@ const Questionnaire = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 required
               />
             </div>
@@ -208,7 +213,7 @@ const Questionnaire = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 required
               />
             </div>
@@ -220,7 +225,7 @@ const Questionnaire = () => {
                 name="phone"
                 value={formData.phone}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 required
               />
             </div>
@@ -231,7 +236,7 @@ const Questionnaire = () => {
                 name="address"
                 value={formData.address}
                 onChange={handleInputChange}
-                className="w-full p-2 border rounded-md"
+                className="w-full p-2 border border-gray-300 rounded focus:border-blue-500 focus:ring-1 focus:ring-blue-500"
                 rows="2"
                 required
               />
@@ -246,12 +251,36 @@ const Questionnaire = () => {
                 Back
               </button>
               <button
-                type="submit"
+                type="button"
+                onClick={handleNext}
                 className="w-1/2 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition-colors"
               >
-                Get Quote
+                Next
               </button>
             </div>
+          </div>
+        )}
+
+        {step === 3 && (
+          <div className="flex justify-between pt-4">
+            <button
+              type="button"
+              onClick={handleBack}
+              className="bg-gray-100 text-gray-700 px-4 py-2 rounded hover:bg-gray-200 transition-colors"
+            >
+              Back
+            </button>
+            <button
+              type="submit"
+              disabled={status === 'submitting'}
+              className={`ml-auto px-4 py-2 rounded text-white transition-colors ${
+                status === 'submitting'
+                  ? 'bg-blue-400 cursor-not-allowed'
+                  : 'bg-blue-600 hover:bg-blue-700'
+              }`}
+            >
+              {status === 'submitting' ? 'Submitting...' : 'Submit'}
+            </button>
           </div>
         )}
       </form>
