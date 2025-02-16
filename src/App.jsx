@@ -3,6 +3,10 @@ import Questionnaire from './components/Questionnaire'
 import PrivacyPolicy from './components/PrivacyPolicy'
 import TermsOfService from './components/TermsOfService'
 import AffiliateDisclosure from './components/AffiliateDisclosure'
+import BlogIndex from './pages/blog/BlogIndex'
+import SepticInspectionGuide from './pages/blog/SepticInspectionGuide'
+import SignsOfSepticFailure from './pages/blog/SignsOfSepticFailure'
+import SepticMaintenanceTips from './pages/blog/SepticMaintenanceTips'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
@@ -12,6 +16,10 @@ function App() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/affiliate-disclosure" element={<AffiliateDisclosure />} />
+        <Route path="/blog" element={<BlogIndex />} />
+        <Route path="/blog/septic-inspection-guide" element={<SepticInspectionGuide />} />
+        <Route path="/blog/signs-of-septic-failure" element={<SignsOfSepticFailure />} />
+        <Route path="/blog/septic-maintenance-tips" element={<SepticMaintenanceTips />} />
         <Route path="/" element={
           <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col">
             {/* Top Banner */}
@@ -25,6 +33,18 @@ function App() {
                 </span>
               </div>
             </div>
+
+            {/* Navigation */}
+            <nav className="bg-white shadow-sm">
+              <div className="max-w-7xl mx-auto px-4">
+                <div className="flex justify-between h-16 items-center">
+                  <div className="flex space-x-8">
+                    <Link to="/" className="text-gray-900 hover:text-blue-600">Home</Link>
+                    <Link to="/blog" className="text-gray-900 hover:text-blue-600">Blog</Link>
+                  </div>
+                </div>
+              </div>
+            </nav>
 
             <main className="max-w-7xl mx-auto px-4 py-8 flex-grow" itemScope itemType="https://schema.org/LocalBusiness">
               <div className="flex justify-center mb-8">
