@@ -100,6 +100,13 @@ const SignsOfSepticFailure = () => {
         <p>If you've noticed any of these warning signs, schedule a professional inspection today.</p>
         <Link to="/quote" className="cta-button">Schedule an Inspection</Link>
       </div>
+
+      {/* Back to Home Button */}
+      <div className="py-8 text-center">
+        <Link to="/" className="inline-block bg-gray-200 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors duration-300">
+          Back to Home
+        </Link>
+      </div>
     </article>
   );
 };

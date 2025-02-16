@@ -78,6 +78,13 @@ const BlogIndex = () => {
           </Link>
         </div>
       </div>
+
+      {/* Back to Home Button */}
+      <div className="py-8 text-center">
+        <Link to="/" className="inline-block bg-gray-200 text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-300 transition-colors duration-300">
+          Back to Home
+        </Link>
+      </div>
     </div>
   );
 };
