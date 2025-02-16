@@ -7,6 +7,9 @@ import BlogIndex from './pages/blog/BlogIndex'
 import SepticInspectionGuide from './pages/blog/SepticInspectionGuide'
 import SignsOfSepticFailure from './pages/blog/SignsOfSepticFailure'
 import SepticMaintenanceTips from './pages/blog/SepticMaintenanceTips'
+import ServicesIndex from './pages/services/ServicesIndex'
+import TankInspection from './pages/services/TankInspection'
+import DistributionBox from './pages/services/DistributionBox'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 
 function App() {
@@ -20,6 +23,9 @@ function App() {
         <Route path="/blog/septic-inspection-guide" element={<SepticInspectionGuide />} />
         <Route path="/blog/signs-of-septic-failure" element={<SignsOfSepticFailure />} />
         <Route path="/blog/septic-maintenance-tips" element={<SepticMaintenanceTips />} />
+        <Route path="/services" element={<ServicesIndex />} />
+        <Route path="/services/tank-inspection" element={<TankInspection />} />
+        <Route path="/services/distribution-box" element={<DistributionBox />} />
         <Route path="/" element={
           <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white flex flex-col">
             {/* Top Banner */}
@@ -40,6 +46,7 @@ function App() {
                 <div className="flex justify-between h-16 items-center">
                   <div className="flex space-x-8">
                     <Link to="/" className="text-gray-900 hover:text-blue-600">Home</Link>
+                    <Link to="/services" className="text-gray-900 hover:text-blue-600">Services</Link>
                     <Link to="/blog" className="text-gray-900 hover:text-blue-600">Blog</Link>
                   </div>
                 </div>
