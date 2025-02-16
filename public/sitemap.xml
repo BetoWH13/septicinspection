@@ -66,4 +66,22 @@
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://septicinspection.xyz/services/drain-field-evaluation</loc>
+    <lastmod>2025-02-16T15:46:44-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://septicinspection.xyz/services/system-integrity-check</loc>
+    <lastmod>2025-02-16T15:46:44-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://septicinspection.xyz/services/tank-inspection</loc>
+    <lastmod>2025-02-16T15:47:24-06:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
