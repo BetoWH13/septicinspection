@@ -35,7 +35,7 @@ function App() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
-                  Call Now: <span className="font-semibold">877-796-6641</span>
+                  Call Now: <span className="font-semibold">877-240-2506</span>
                 </span>
               </div>
             </div>
@@ -93,7 +93,7 @@ function App() {
                       className="mt-2 w-full text-center bg-blue-600 text-white py-3 rounded-md font-semibold"
                       itemProp="telephone"
                     >
-                      877-796-6641
+                      877-240-2506
                     </div>
                   </div>
                 </section>
@@ -161,7 +161,7 @@ function App() {
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                     </svg>
-                    877-796-6641
+                    877-240-2506
                   </div>
                   <a
                     href="https://leads.leadsmartinc.com/?api_key=eccf565586cda416df8b89f66df641fee9a1bcb8&affiliate_source=albertowaizel1&category=&funnel=3&buttons=btn-success&step=1"
@@ -184,7 +184,7 @@ function App() {
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
-                  877-796-6641
+                  877-240-2506
                 </div>
               </div>
 
@@ -195,7 +195,7 @@ function App() {
                   "@type": "LocalBusiness",
                   "name": "Septic Tank Inspection Services",
                   "image": "https://septicinspection.xyz/logo.svg",
-                  "telephone": "877-796-6641",
+                  "telephone": "877-240-2506",
                   "priceRange": "$$",
                   "address": {
                     "@type": "PostalAddress",
@@ -277,7 +277,7 @@ function App() {
                     <Link to="/affiliate-disclosure" className="text-gray-600 hover:text-blue-600 transition-colors">
                       Affiliate Disclosure
                     </Link>
-                    <span className="text-gray-600">Contact Us: 877-796-6641</span>
+                    <span className="text-gray-600">Contact Us: 877-240-2506</span>
                   </nav>
                 </div>
               </div>
